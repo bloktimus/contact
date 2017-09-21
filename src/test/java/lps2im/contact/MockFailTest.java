@@ -8,7 +8,7 @@ import org.easymock.Mock;
 import org.easymock.TestSubject;
 import org.junit.Test;
 
-public class MockFailTest {
+public class MockFailTest extends MockEasy{
 
 	@TestSubject
 	private ContactService service = new ContactService ();
@@ -16,7 +16,7 @@ public class MockFailTest {
 	@Mock
 	private IContactDAO dao;
 	
-	@Test
+	@Test (expected = IllegalStateException.class)
 	public void testCreerContactCasValide() throws IllegalArgumentException, IllegalStateException{
 		
 		// Phase d'enregistrement des comportements
